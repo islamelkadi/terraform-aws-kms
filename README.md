@@ -5,15 +5,13 @@ A reusable Terraform module for creating AWS KMS Customer Managed Keys (CMK) wit
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
-- [Security Controls](#security-controls)
+- [Security](#security)
 - [Features](#features)
-- [Usage Examples](#usage-examples)
+- [Usage](#usage)
 - [Requirements](#requirements)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
-- [Examples](#examples)
+- [MCP Servers](#mcp-servers)
+- [License](#license)
 
----
 
 ## Prerequisites
 
@@ -30,7 +28,11 @@ make bootstrap
 
 This will install/upgrade: tfenv, Terraform (via tfenv), tflint, terraform-docs, checkov, and pre-commit.
 
-## Security Controls
+
+
+## Security
+
+### Security Controls
 
 This module implements AWS Security Hub compliance with an extensible override system.
 
@@ -54,6 +56,31 @@ This module implements AWS Security Hub compliance with an extensible override s
 - Key rotation still recommended
 - Shorter deletion window acceptable (7-14 days)
 
+### Environment-Based Security Controls
+
+Security controls are automatically applied based on the environment through the [terraform-aws-metadata](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles){:target="_blank"} module's security profiles:
+
+| Control | Dev | Staging | Prod |
+|---------|-----|---------|------|
+| KMS customer-managed keys | Optional | Required | Required |
+| Key rotation | Recommended | Required | Required |
+| Deletion window | 7 days | 14-30 days | 30 days |
+| CloudWatch Logs access | Optional | Recommended | Required |
+
+For full details on security profiles and how controls vary by environment, see the <a href="https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles" target="_blank">Security Profiles</a> documentation.
+
+### Security Best Practices
+
+**Production Keys:**
+- Enable automatic key rotation (365 days)
+- Set deletion window to 30 days (maximum)
+- Define key administrators and users explicitly
+- Enable CloudWatch Logs access for log encryption
+- Use multi-region keys for disaster recovery
+
+**Development Keys:**
+- Key rotation still recommended
+- Shorter deletion window acceptable (7-14 days)
 ## Features
 
 - KMS customer-managed key (CMK)
@@ -207,18 +234,6 @@ module "kms_key_replica" {
 }
 ```
 
-## Environment-Based Security Controls
-
-Security controls are automatically applied based on the environment through the [terraform-aws-metadata](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles){:target="_blank"} module's security profiles:
-
-| Control | Dev | Staging | Prod |
-|---------|-----|---------|------|
-| KMS customer-managed keys | Optional | Required | Required |
-| Key rotation | Recommended | Required | Required |
-| Deletion window | 7 days | 14-30 days | 30 days |
-| CloudWatch Logs access | Optional | Recommended | Required |
-
-For full details on security profiles and how controls vary by environment, see the <a href="https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles" target="_blank">Security Profiles</a> documentation.
 
 ## MCP Servers
 
@@ -314,9 +329,6 @@ module "kms" {
 | <a name="output_key_policy"></a> [key\_policy](#output\_key\_policy) | KMS key policy |
 | <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to the KMS key |
 
-## Example
-
-See [example/](example/) for a complete working example with all features.
 
 ## License
 
