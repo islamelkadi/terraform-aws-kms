@@ -65,18 +65,6 @@ Security controls are automatically applied based on the environment through the
 
 For full details on security profiles and how controls vary by environment, see the [Security Profiles](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles) documentation.
 
-### Security Best Practices
-
-**Production Keys:**
-- Enable automatic key rotation (365 days)
-- Set deletion window to 30 days (maximum)
-- Define key administrators and users explicitly
-- Enable CloudWatch Logs access for log encryption
-- Use multi-region keys for disaster recovery
-
-**Development Keys:**
-- Key rotation still recommended
-- Shorter deletion window acceptable (7-14 days)
 ## Features
 
 - KMS customer-managed key (CMK)
