@@ -10,7 +10,6 @@ A reusable Terraform module for creating AWS KMS Customer Managed Keys (CMK) wit
 - [Usage](#usage)
 - [Requirements](#requirements)
 - [MCP Servers](#mcp-servers)
-- [License](#license)
 
 
 ## Prerequisites
@@ -329,11 +328,6 @@ module "kms" {
 | <a name="output_key_policy"></a> [key\_policy](#output\_key\_policy) | KMS key policy |
 | <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to the KMS key |
 
-
-## License
-
-MIT Licensed. See [LICENSE](LICENSE) for full details.
-<!-- END_TF_DOCS -->
 
 ## Examples
 
