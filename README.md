@@ -11,7 +11,6 @@ A reusable Terraform module for creating AWS KMS Customer Managed Keys (CMK) wit
 - [Requirements](#requirements)
 - [MCP Servers](#mcp-servers)
 
-
 ## Prerequisites
 
 This module is designed for macOS. The following must already be installed on your machine:
@@ -26,8 +25,6 @@ make bootstrap
 ```
 
 This will install/upgrade: tfenv, Terraform (via tfenv), tflint, terraform-docs, checkov, and pre-commit.
-
-
 
 ## Security
 
@@ -57,7 +54,7 @@ This module implements AWS Security Hub compliance with an extensible override s
 
 ### Environment-Based Security Controls
 
-Security controls are automatically applied based on the environment through the [terraform-aws-metadata](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles){:target="_blank"} module's security profiles:
+Security controls are automatically applied based on the environment through the [terraform-aws-metadata](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles) module's security profiles:
 
 | Control | Dev | Staging | Prod |
 |---------|-----|---------|------|
@@ -66,7 +63,7 @@ Security controls are automatically applied based on the environment through the
 | Deletion window | 7 days | 14-30 days | 30 days |
 | CloudWatch Logs access | Optional | Recommended | Required |
 
-For full details on security profiles and how controls vary by environment, see the <a href="https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles" target="_blank">Security Profiles</a> documentation.
+For full details on security profiles and how controls vary by environment, see the [Security Profiles](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles) documentation.
 
 ### Security Best Practices
 
@@ -233,7 +230,6 @@ module "kms_key_replica" {
 }
 ```
 
-
 ## MCP Servers
 
 This module includes two [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers configured in `.kiro/settings/mcp.json` for use with Kiro:
@@ -246,7 +242,6 @@ This module includes two [Model Context Protocol (MCP)](https://modelcontextprot
 Both servers run via `uvx` and require no additional installation beyond the [bootstrap](#prerequisites) step.
 
 <!-- BEGIN_TF_DOCS -->
-
 
 ## Usage
 
@@ -327,7 +322,6 @@ module "kms" {
 | <a name="output_key_id"></a> [key\_id](#output\_key\_id) | KMS key ID |
 | <a name="output_key_policy"></a> [key\_policy](#output\_key\_policy) | KMS key policy |
 | <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to the KMS key |
-
 
 ## Examples
 
