@@ -93,8 +93,7 @@ For full details on security profiles and how controls vary by environment, see 
 
 ```hcl
 module "kms_key" {
-  source = "github.com/islamelkadi/terraform-aws-kms?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-kms"
   namespace   = "example"
   environment = "prod"
   name        = "data-encryption"
@@ -121,8 +120,7 @@ module "kms_key" {
 
 ```hcl
 module "kms_key" {
-  source = "github.com/islamelkadi/terraform-aws-kms?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-kms"
   security_controls = module.metadata.security_controls
   
   namespace   = "example"
@@ -174,8 +172,7 @@ module "kms_key" {
 
 ```hcl
 module "kms_key_primary" {
-  source = "github.com/islamelkadi/terraform-aws-kms?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-kms"
   security_controls = module.metadata.security_controls
   
   namespace   = "example"
@@ -207,8 +204,7 @@ module "kms_key_primary" {
 
 # Replica in secondary region
 module "kms_key_replica" {
-  source = "github.com/islamelkadi/terraform-aws-kms?ref=v1.0.0"
-  
+  source = "github.com/islamelkadi/terraform-aws-kms"
   providers = {
     aws = aws.us-east-1
   }
@@ -249,8 +245,7 @@ Both servers run via `uvx` and require no additional installation beyond the [bo
 # Basic KMS Module Example
 
 module "kms" {
-  source = "../"
-
+  source = "github.com/islamelkadi/terraform-aws-kms"
   namespace   = var.namespace
   environment = var.environment
   name        = var.name
