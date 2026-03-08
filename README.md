@@ -328,3 +328,4 @@ module "kms" {
 
 See [example/](example/) for a complete working example with key policy configuration.
 
+<!-- END_TF_DOCS -->
