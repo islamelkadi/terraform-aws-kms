@@ -65,6 +65,20 @@ Security controls are automatically applied based on the environment through the
 
 For full details on security profiles and how controls vary by environment, see the [Security Profiles](https://github.com/islamelkadi/terraform-aws-metadata?tab=readme-ov-file#security-profiles) documentation.
 
+### Security Scan Suppressions
+
+This module suppresses certain Checkov security checks that are either not applicable to example/demo code or represent intentional design choices. The following checks are suppressed in `.checkov.yaml`:
+
+**Module Source Versioning (CKV_TF_1, CKV_TF_2)**
+- Suppressed because we use semantic version tags (`?ref=v1.0.0`) instead of commit hashes for better maintainability and readability
+- Semantic versioning is a valid and widely-accepted versioning strategy for stable releases
+
+**KMS IAM Policies (CKV_AWS_111, CKV_AWS_356, CKV_AWS_109)**
+- Suppressed because this module intentionally uses flexible IAM policies for demonstration purposes
+- The module generates IAM policy documents that allow broad permissions to demonstrate KMS key usage patterns
+- Production deployments should customize these policies based on specific security requirements and apply least privilege principles
+- Users should restrict resource access and actions based on their organizational security policies
+
 ## Features
 
 - KMS customer-managed key (CMK)
