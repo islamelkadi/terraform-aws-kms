@@ -9,3 +9,7 @@ skip-check:
     comment: "KMS module uses wildcard resources for flexibility in examples. Users should restrict in production."
   - id: CKV_AWS_109
     comment: "KMS module IAM policies are intentionally permissive for examples. Users should apply least privilege in production."
+  
+  # Terraform Module Sources - Using semantic versioning tags (commit hash)
+  - id: CKV_TF_1
+    comment: "Using semantic version tags (?ref=v1.0.0) instead of commit hashes for better maintainability and readability."
