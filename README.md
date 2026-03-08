@@ -1,5 +1,9 @@
 # Terraform AWS KMS Module
 
+[![Terraform Security](https://github.com/islamelkadi/terraform-aws-kms/actions/workflows/terraform-security.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-kms/actions/workflows/terraform-security.yaml)
+[![Terraform Lint & Validation](https://github.com/islamelkadi/terraform-aws-kms/actions/workflows/terraform-lint.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-kms/actions/workflows/terraform-lint.yaml)
+[![Terraform Docs](https://github.com/islamelkadi/terraform-aws-kms/actions/workflows/terraform-docs.yaml/badge.svg)](https://github.com/islamelkadi/terraform-aws-kms/actions/workflows/terraform-docs.yaml)
+
 A reusable Terraform module for creating AWS KMS Customer Managed Keys (CMK) with AWS Security Hub compliance (FSBP, CIS, NIST 800-53, NIST 800-171, PCI DSS), automatic key rotation, and flexible security control overrides.
 
 ## Table of Contents
