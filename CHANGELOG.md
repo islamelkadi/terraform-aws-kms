@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/islamelkadi/terraform-aws-kms/compare/v1.0.2...v1.1.0) (2026-03-15)
+
+
+### Features
+
+* add manual triggering to release workflow ([336492a](https://github.com/islamelkadi/terraform-aws-kms/commit/336492a2bb9a93bf105d9ba1c930d1eb9e399353))
+
 ## [1.0.2](https://github.com/islamelkadi/terraform-aws-kms/compare/v1.0.1...v1.0.2) (2026-03-08)
 
 
